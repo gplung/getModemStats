@@ -169,9 +169,19 @@ class StatsParser(HTMLParser):
 
   # Returns a string that is "human readable"
   def readable_str(self):
+    if self.downstream > 1000000:
+      downstream_rate = str(self.downstream/1000000.0) + "mbit/s"
+    else:
+      downstream_rate = str(self.downstream/1000) + "kbit/s"
+
+    if self.upstream > 1000000:
+      upstream_rate = str(self.upstream/1000000.0) + "mbit/s"
+    else:
+      upstream_rate = str(self.upstream/1000) + "kbit/s"
+    
     return (
-          "Downstream Speed:        " + str(self.downstream) +
-        "\nUpstream Speed:          " + str(self.upstream) + 
+          "Downstream Speed:        " + downstream_rate +
+        "\nUpstream Speed:          " + upstream_rate + 
         "\nPackets Received:        " + str(self.packetsrx) + 
         "\nRetrains:                " + str(self.retrains) +
         "\nRetrain Timer:           " + str(self.retrain_timer) +
@@ -183,12 +193,12 @@ class StatsParser(HTMLParser):
         "\nNear End FEC Fastpath:   " + str(self.near_fec_fast) + 
         "\nFar End FEC Interleave:  " + str(self.far_fec_int) +
         "\nFar End FEC Fastpath:    " + str(self.far_fec_fast) + 
-        "\nSNR Downstream:          " + str(self.snr_down) +
-        "\nSNR Upstream:            " + str(self.snr_up) +
-        "\nAttenuation Downstream:  " + str(self.atten_down) +
-        "\nAttenuation Upstream:    " + str(self.atten_up) +
-        "\nPower Downstream:        " + str(self.power_down) + 
-        "\nPower Upstream:          " + str(self.power_up))
+        "\nSNR Downstream:          " + str(self.snr_down) + "dB" +
+        "\nSNR Upstream:            " + str(self.snr_up) + "dB" +
+        "\nAttenuation Downstream:  " + str(self.atten_down) + "dB" +
+        "\nAttenuation Upstream:    " + str(self.atten_up) + "dB" +
+        "\nPower Downstream:        " + str(self.power_down) + "dBm" +
+        "\nPower Upstream:          " + str(self.power_up)) + "dBm"
 
   # Returns a string that is formatted for use with Cacti
   def __str__(self):
