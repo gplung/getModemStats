@@ -17,10 +17,13 @@ UI.
 # Usage
 
 `python getZyxelQ100ModemStats.py -h`
+
 Displays help
 
 `python getZyxelQ100ModemStats.py -H 192.168.0.1 -u admin -p password`
+
 Displays stats from host 192.168.0.1 in a format suitable for Cacti.
 
 `python getZyxelQ100ModemStats.py -H 192.168.0.1 -u admin -p password -r`
+
 Displays stats from host 192.168.0.1 in a human readable format.
