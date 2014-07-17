@@ -1,7 +1,7 @@
 getModemStats
 =============
 
-# Description 
+## Description 
 
 The Script, getZyxelQ100ModemStats.py, scrapes the web interface of a ZyXEL
 Q100 DSL modem and outputs some statistics in a format that Cacti can use. With
@@ -14,7 +14,7 @@ firmware versions may or may not work.
 The script also assumes you require a username and password to enter the Web
 UI.
 
-# Usage
+## Usage
 
 `python getZyxelQ100ModemStats.py -h`
 
